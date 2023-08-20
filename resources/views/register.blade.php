@@ -39,38 +39,35 @@
                 <div class="col-xl-6 col-lg-6" style="background-color: #8812B1;">
                     <div class="login-cover-wrapper p-5" style="height: 100%">
                         <div class="card shadow-none">
-                            <div class="card-body" style="background-color: #8812B1; border: none;">
+                            <div class="card-body">
 
                                 <form class="form-body row g-3" action={{ route('store') }} method="POST">
                                     @csrf
                                     <div class="col-12">
-                                        <label for="inputEmail" style="color: white" class="form-label">Username</label>
+                                        <label for="inputEmail"  class="form-label">Username</label>
                                         <input type="text" class="form-control" id="inputEmail" name="name"
                                             required>
                                     </div>
                                     <div class="col-12">
-                                        <label for="inputEmail" style="color: white" class="form-label">Email</label>
+                                        <label for="inputEmail" class="form-label">Email</label>
                                         <input type="email" class="form-control" id="inputEmail" name="email"
                                             required>
                                     </div>
                                     <div class="col-12">
-                                        <label for="inputPassword" style="color: white"
-                                            class="form-label">Password</label>
+                                        <label for="inputPassword" class="form-label">Password</label>
                                         <input type="password" class="form-control" id="inputPassword" name="password"
                                             required>
                                     </div>
+                                    <div class="col-12 col-lg-12 text-center">
+                                      <p class="mb-0">Sudah punya akun? <a href="{{ route('login') }}">Login</a>
+                                      </p>
+                                  </div>
                                     <div class="d-grid">
-                                        <button type="submit" class="btn" style="color: white">Daftar</button>
+                                        <button type="submit" class="btn btn-primary">Daftar</button>
                                     </div>
 
                                     {{-- col ke2 --}}
-                                    <div class="col-12 col-lg-12">
-
-                                        <div class="d-grid">
-                                            <a href="{{ route('login') }}"> <button type="button" class="btn"
-                                                    style="color: white">Login</button></a>
-                                        </div>
-                                    </div>
+ 
 
                                 </form>
                             </div>

@@ -39,7 +39,7 @@
                                 <form class="form-body row g-3" action="{{ route('loginPost') }}" method="POST">
                                     @csrf
                                     <div class="col-12">
-                                        <label for="inputEmail" class="form-label">Username/Email</label>
+                                        <label for="inputEmail" class="form-label">Username</label>
                                         <input type="text" class="form-control" id="inputEmail" name="name" required>
                                     </div>
                                     <div class="col-12">
