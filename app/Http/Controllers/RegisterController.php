@@ -37,22 +37,24 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-
-        $this->validate($request, [
-            'name'     => 'required',
-            'email'     => 'required',
-            'password'   => 'required'
-        ]);
-
+       
         //create post
-        User::create([
+        $buat = User::create([
             'name'     => $request->name,
             'email'     => $request->email,
             'password'   => Hash::make($request->password)
         ]);
 
+        if ($buat) {
+            //redirect dengan pesan sukses
+            return redirect()->route('login')->with(['success' => 'Data Berhasil Disimpan!']);
+        } else {
+            //redirect dengan pesan error
+            return redirect()->route('register')->with(['error' => 'Data Gagal Disimpan!']);
+        }
+
         //redirect to index
-        return redirect()->route('register')->with(['success' => 'Data Berhasil Disimpan!']);
+       
     }
 
     /**

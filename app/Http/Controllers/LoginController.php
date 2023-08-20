@@ -14,6 +14,9 @@ class LoginController extends Controller
      */
     public function index()
     {
+        if (Auth :: check()) {
+            return redirect()->route('dashboard');
+        }
         return view ("login");
     }
 
@@ -24,16 +27,21 @@ class LoginController extends Controller
      */
     public function create(Request $request)
     {
-        $this -> validate($request, [
-            'email' => 'required',
-            'password' => 'required'
-        ]);
+       
+        
 
-        if (Auth::attempt(['email' => $request -> email, 'password' => $request -> password])) {
+        if (Auth::attempt(['name' => $request -> name, 'password' => $request -> password])) {
             return redirect()->route('dashboard');
         } else {
             return redirect()->route('login')->with(['error' => 'Email atau Password Salah!']);
         }
+    }
+
+    //logout
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login')->with(['success' => 'Anda Berhasil Logout!']);
     }
 
     /**
