@@ -16,7 +16,7 @@ use App\Http\Controllers\RegisterController;
 
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/store', [RegisterController::class, 'store'])->name('store');
-Route::post('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 
 //route group admin prefix 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
